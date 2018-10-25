@@ -266,14 +266,14 @@ class ComparePrecedenceTest(unittest.TestCase):
 class AppendToOutputTest(unittest.TestCase):
     def test_append_to_empty_outString(self):
         print(self._testMethodName)
-        outString = list('')
+        outString = ''
         token = '8'
-        sy.appendToOutput(outString, token)
-        self.assertListEqual(outString, ['8'])
+        result = list(sy.appendToOutput(outString, token))
+        self.assertListEqual(result, ['8'])
 
     def test_append_to_occupied_outString(self):
         print(self._testMethodName)
-        outString = list('36 - 2 ( 20 + 12 / 4 * 3 - 2 * 2 ) +')
+        outString = '36 - 2 ( 20 + 12 / 4 * 3 - 2 * 2 ) +'
         token = '10'
-        sy.appendToOutput(outString, token)
-        self.assertListEqual(outString, ['36', '-', '2', '(', '20', '+', '12', '/', '4', '*', '3', '-', '2', '*', '2', ')', '+', '10'])
+        result = list(sy.appendToOutput(outString, token))
+        self.assertListEqual(result, ['36', '-', '2', '(', '20', '+', '12', '/', '4', '*', '3', '-', '2', '*', '2', ')', '+', '10'])
